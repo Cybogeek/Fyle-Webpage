@@ -1,8 +1,8 @@
-# Project Name
+# Fyle Webpage- Assignment
 
 ## Description
 
-This project is a responsive website built with HTML, CSS, and Bootstrap, showcasing a digital marketing agency's homepage. It includes sections such as a hero banner, services overview, carousel of projects, features, company growth statistics, client feedback, and a footer.
+This project is a responsive website built with HTML, CSS, and Bootstrap, showcasing a digital marketing agency's homepage. It includes a hero banner, a services overview, a carousel of projects, features, company growth statistics, client feedback, and a footer.
 
 ## Installation
 
@@ -11,7 +11,7 @@ To run this project locally, follow these steps:
 1. Clone the repository:
 
 ```
-git clone <repository-url>
+git clone (https://github.com/Cybogeek/Fyle-Webpage)
 ```
 
 2. Open the `index.html` file in your preferred web browser.

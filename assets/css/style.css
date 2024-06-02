@@ -1,0 +1,129 @@
+/*Font Imports*/
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/**/
+
+body {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+h1 {
+  font: normal normal bold 60px/80px Cormorant SC;
+}
+.hero h5 {
+  text-align: left;
+  font: normal normal 600 30px/110px Cormorant SC;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #ff3147;
+}
+.prime-color {
+  background-color: #ff3147;
+  color: #fff;
+  font: normal normal 600 14px/26px Poppins;
+  letter-spacing: 1.4px;
+}
+.scroll-section,.growth {
+  background-color: #fafafa;
+}
+.carousel-indicators [data-bs-target] {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #000;
+  opacity: 1;
+  margin-right: 12px;
+  margin-left: 12px;
+}
+.carousel-indicators {
+  bottom: -81px;
+  left: -150px;
+  justify-content: start;
+  align-items: center;
+}
+.carousel-indicators .active {
+  width: 30px;
+  height: 30px;
+  background-color: #ff3147;
+  background: transparent url("../images/1.svg") 0% 0% no-repeat padding-box;
+}
+.feature-icon img {
+  height: 70px;
+}
+.feature > h2 {
+  font-size: 20px;
+  line-height: 80px;
+  font-family: "Poppins";
+}
+h6 {
+  font: normal normal medium 20px/80px Poppins;
+}
+h5 {
+  text-align: center;
+  font: normal normal 600 24px/26px Cormorant SC;
+  letter-spacing: 0px;
+  color: #ff3147;
+}
+.lead {
+  font: normal normal normal 16px/30px Poppins;
+}
+h4 {
+  font: normal normal bold 45px/65px Cormorant SC;
+  text-align: center;
+}
+@media screen and (min-width: 576px) {
+  .carousel-inner {
+    display: flex;
+  }
+  .carousel-item {
+    display: block;
+    margin-right: 0;
+    flex: 0 0 auto;
+    width: 25%;
+  }
+}
+.carousel-item {
+  padding: 1em;
+}
+.card {
+  margin: 0.5em;
+}
+.carousel-caption {
+  opacity: 0;
+  background-color: #ff3147;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  border-radius: inherit;
+  transition: opacity 0.3s ease-in-out;
+}
+.card:hover > .carousel-caption {
+  opacity: 1;
+}
+.content-box {
+  background-color: #f6f6f6;
+  padding: 24px;
+  transition: background-color 0.3s ease-in-out, font 0.3s ease-in-out;
+}
+.content-box:hover {
+  background-color: #ff3147;
+  color: #fff;
+}
+.h-box{transition: box-shadow 0.3s ease-in-out;text-align: center;}
+.h-box img{width: 36px;height: 36px; margin: 8px auto;}
+.h-box h3{font: normal normal 300 60px/65px Poppins;}
+.h-box p{font-size:20px;font-weight: 300;}
+.h-box:hover{box-shadow: 3px 6px 20px #672C2C1F;}
+.client{font: normal normal 300 20px/34px Poppins;color: #808080;}
+.client span{color:#FF3147;font-weight: bold;}
+.client-msg{background: transparent url('../images/Quotemarks-left.svg') 0% 0% no-repeat padding-box;}
+footer{background-color:#FF3147;}
+.form-control{border: none;
+  border-bottom: 2px solid #6F718F99; /* Underline */
+  outline: none;}
+  .modal-title{font-family:AktivGrotesk, "poppins",sans-serif;font-size: 20px;}
+  .c-btn{background-color: #F4F4F4;margin:8px auto;}
+  .carousel-caption h3{font: normal normal 600 24px/26px Cormorant SC;}
+  .carousel-caption p{font: normal normal normal 16px Poppins;}

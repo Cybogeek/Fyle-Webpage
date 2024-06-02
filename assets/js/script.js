@@ -1,48 +1,62 @@
-// document.addEventListener('DOMContentLoaded', (event) => {
-//     const carousel = document.querySelector('.carousel');
-//     const carouselItems = document.querySelectorAll('.carousel .carousel-item');
-//     const carouselInner = document.querySelector('.carousel .carousel-inner');
 
-//     // Calculate total width of all items
-//     let totalWidth = 0;
-//     carouselItems.forEach(item => {
-//         totalWidth += item.offsetWidth;
-//     });
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const carousel = document.querySelector('.carousel');
+        const carouselInner = document.querySelector('.carousel .carousel-inner');
+        const carouselItems = document.querySelectorAll('.carousel .carousel-item');
+        const carouselIndicators = document.querySelectorAll('.carousel-indicators button');
 
-//     // Set the width of carousel inner to accommodate all items
-//     carouselInner.style.width = totalWidth + 'px';
+        // Check if the window width is greater than or equal to 576px
+        if (window.matchMedia("(min-width:576px)").matches) {
+            // Clone the first few items and append them to the end
+            const clonedItems = Array.from(carouselItems).slice(0, 4).map(item => item.cloneNode(true));
+            clonedItems.forEach(item => carouselInner.appendChild(item));
 
-//     // Clone carousel items to create continuous effect
-//     carouselItems.forEach((item, index) => {
-//         const clone = item.cloneNode(true);
-//         carouselInner.appendChild(clone);
-//     });
+            // Set the scroll position to the start of the cloned items
+            carouselInner.scrollTo({
+                left: 0,
+                behavior: 'smooth'
+            });
 
-//     // Calculate the width of a single slide
-//     const singleSlideWidth = totalWidth / (carouselItems.length * 2);
+            // Function to animate scrolling
+            function animateScroll() {
+                // Scroll to the next item
+                carouselInner.scrollBy({
+                    left: carouselItems[0].offsetWidth,
+                    behavior: 'smooth'
+                });
 
-//     // Set the initial position to the middle of the cloned items
-//     carouselInner.style.transform = `translateX(-${singleSlideWidth}px)`;
+                // Check if reached the end of carousel
+                if (carouselInner.scrollLeft + carouselInner.clientWidth >= carouselInner.scrollWidth) {
+                    // If reached the end, reset to the start
+                    carouselInner.scrollTo({
+                        left: 0,
+                        behavior: 'smooth'
+                    });
+                }
 
-//     // Define animation function
-//     function animateCarousel() {
-//         // Calculate new position
-//         const currentPosition = parseFloat(carouselInner.style.transform.slice(11));
-//         const newPosition = currentPosition - singleSlideWidth;
+                // Update carousel indicators
+                updateIndicators();
+            }
 
-//         // Apply transition
-//         carouselInner.style.transition = 'transform 1s ease-in-out';
-//         carouselInner.style.transform = `translateX(${newPosition}px)`;
+            // Function to update carousel indicators
+            function updateIndicators() {
+                const centralItemIndex = Math.round(carouselInner.scrollLeft / carouselItems[0].offsetWidth);
+                carouselIndicators.forEach((indicator, index) => {
+                    if (index === centralItemIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
 
-//         // Reset position when transition ends
-//         setTimeout(() => {
-//             if (newPosition <= -totalWidth + singleSlideWidth) {
-//                 carouselInner.style.transition = 'none';
-//                 carouselInner.style.transform = `translateX(-${singleSlideWidth}px)`;
-//             }
-//         }, 1000);
-//     }
+            // Start infinite scrolling
+            setInterval(animateScroll, 3000);
 
-//     // Start animation
-//     setInterval(animateCarousel, 3000);
-// });
+            // Initial update of carousel indicators
+            updateIndicators();
+        } else {
+            // If window width is less than 576px, add 'slide' class to enable default behavior
+            carousel.classList.add('slide');
+        }
+    });
